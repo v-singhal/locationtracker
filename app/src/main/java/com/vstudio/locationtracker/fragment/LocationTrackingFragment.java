@@ -67,5 +67,8 @@ public class LocationTrackingFragment extends BaseFragment {
 
     private void setupView(View view) {
 
+        view.findViewById(R.id.txtLocationServiceStatus);
+        view.findViewById(R.id.btnStopLocationService).setOnClickListener(this);
+        view.findViewById(R.id.btnStartLocationService).setOnClickListener(this);
     }
 }

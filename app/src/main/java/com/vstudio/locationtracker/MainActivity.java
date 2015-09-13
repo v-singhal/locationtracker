@@ -9,6 +9,7 @@ import android.view.MenuItem;
 import android.widget.TextView;
 
 import com.vstudio.locationtracker.fragment.BaseFragment;
+import com.vstudio.locationtracker.fragment.LocationTrackingFragment;
 
 import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 
@@ -86,7 +87,7 @@ public class MainActivity extends ActionBarActivity {
     private void openAptFragment() {
         BaseFragment fragment = new BaseFragment();
 
-
+        fragment = LocationTrackingFragment.newInstance();
         getSupportFragmentManager().beginTransaction().replace(R.id.container, fragment).commit();
     }
 }
