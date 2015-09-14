@@ -1,4 +1,4 @@
-package com.vstudio.locationtracker;
+package com.vbstudio.locationtracker;
 
 import android.app.Application;
 

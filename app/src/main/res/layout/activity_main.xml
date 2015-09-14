@@ -9,10 +9,21 @@
         android:id="@+id/container"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@drawable/backgorund_diamond_pattern"/>
+        android:background="@color/white"/>
 
     <include
         android:id="@+id/appToolbar"
         layout="@layout/toolbar"/>
+
+    <ProgressBar
+        android:id="@+id/loadingIndicator"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_centerInParent="true"
+        android:background="@drawable/rounded_corner_loader_background"
+        android:indeterminateDrawable="@drawable/progresswheel"
+        android:indeterminateOnly="true"
+        android:padding="5dp"
+        android:visibility="gone"/>
 
 </RelativeLayout>

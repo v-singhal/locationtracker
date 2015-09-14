@@ -1,4 +1,4 @@
-package com.vstudio.locationtracker.database;
+package com.vbstudio.locationtracker.database;
 
 import android.content.ContentValues;
 import android.content.Context;
@@ -6,8 +6,8 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
-import com.vstudio.locationtracker.dom.LocationTrackingResultData;
-import com.vstudio.locationtracker.dom.PingedLocationDetailsData;
+import com.vbstudio.locationtracker.dom.LocationTrackingResultData;
+import com.vbstudio.locationtracker.dom.PingedLocationDetailsData;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -176,7 +176,7 @@ public class SqliteHelper extends SQLiteOpenHelper {
         SQLiteDatabase db = this.getReadableDatabase();
 
         String rawQuery = "SELECT * FROM " + TABLE_LOCATION_TRACKER + " WHERE "
-                + TRIP_TRACKING_SESSION_ID + "= '" + trackingSessionId + "'";
+                + TRACKING_SESSION_ID + " = '" + trackingSessionId + "'";
 
         List<PingedLocationDetailsData> pingedLocationDataSetFromDb = new ArrayList<>();
         PingedLocationDetailsData pingedLocationData = new PingedLocationDetailsData();
@@ -227,6 +227,8 @@ public class SqliteHelper extends SQLiteOpenHelper {
             values.put(TRIP_DISTANCE, locationTrackingResultData.getDistanceTraveled());
 
             db.insert(TABLE_LOCATION_TRACKER_RESULT, null, values);
+        } else {
+            updateLocationTrackerAtEnd(locationTrackingResultData);
         }
         db.close(); // Closing database connection
     }
@@ -262,7 +264,7 @@ public class SqliteHelper extends SQLiteOpenHelper {
         SQLiteDatabase db = this.getReadableDatabase();
 
         String rawQuery = "SELECT * FROM " + TABLE_LOCATION_TRACKER_RESULT + " WHERE "
-                + TRIP_TRACKING_SESSION_ID + "= '" + tripId + "'";
+                + TRIP_TRACKING_SESSION_ID + " = '" + tripId + "'";
 
         LocationTrackingResultData locationTrackingResultData = new LocationTrackingResultData();
         Cursor cursor = db.rawQuery(rawQuery, null);
@@ -289,13 +291,13 @@ public class SqliteHelper extends SQLiteOpenHelper {
         SQLiteDatabase db = this.getReadableDatabase();
 
         String rawQuery = "SELECT * FROM " + TABLE_LOCATION_TRACKER_RESULT + " WHERE "
-                + TRIP_TRACKING_SESSION_ID + "= '" + tripTrackingSessionId + "'";
+                + TRIP_TRACKING_SESSION_ID + " = '" + tripTrackingSessionId + "'";
         Cursor cursor = db.rawQuery(rawQuery, null);
 
         if (cursor.moveToFirst()) {
             isLocationTrackingPresent = true;
         }
-        db.close();
+        //db.close();
 
         return isLocationTrackingPresent;
     }
@@ -305,12 +307,17 @@ public class SqliteHelper extends SQLiteOpenHelper {
 
     }
 
-    public void updateLocationTrackerResultEndTime() {
+    public void updateLocationTrackerAtEnd(LocationTrackingResultData locationTrackingResultData) {
 
-    }
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        String where = TRIP_TRACKING_SESSION_ID + " = '" + locationTrackingResultData.getTrackingSessionId() + "'";
+        values.put(PINGED_END_TIME, locationTrackingResultData.getTripEndTime());
+        values.put(TRIP_DISTANCE, locationTrackingResultData.getDistanceTraveled().toString());
 
-    public void updateLocationTrackerResultDistance() {
+        db.update(TABLE_LOCATION_TRACKER_RESULT, values, where, null);
 
+        db.close(); // Closing database connection
     }
 
     // DELETE

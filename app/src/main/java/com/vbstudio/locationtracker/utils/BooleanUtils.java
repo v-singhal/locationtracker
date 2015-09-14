@@ -1,4 +1,4 @@
-package com.vstudio.locationtracker.utils;
+package com.vbstudio.locationtracker.utils;
 
 /**
  * Created by vaibhav on 13/9/15.

@@ -14,9 +14,12 @@
     <color name="separatorMediumDark">#EEEEEE</color>
     <color name="separatorDark">#CCCCCC</color>
 
+    <color name="mainCta">#D44343</color>
     <color name="menuCta">#DB6A47</color>
     <color name="otherCta">#333333</color>
     <color name="lighterMenuCta">#E87754</color>
     <color name="darkerMenuCta">#DB5500</color>
+
+    <color name="cyanShade">#56D0B7</color>
 
 </resources>

@@ -1,4 +1,8 @@
-package com.vstudio.locationtracker.dom;
+package com.vbstudio.locationtracker.dom;
+
+import com.vbstudio.locationtracker.utils.StringUtils;
+
+import java.text.SimpleDateFormat;
 
 /**
  * Created by vaibhav on 13/9/15.
@@ -9,6 +13,12 @@ public class PingedLocationDetailsData {
     private Double pingedLatitude;
     private Double pingedLongitude;
     private String pingedTime;
+
+    public String getFormattedPingedTime() {
+        return new SimpleDateFormat(StringUtils.APP_DATE_TIME_SEC_FORMAT).format(Long.valueOf(pingedTime));
+    }
+
+    //***********************/
 
     public String getTrackingSessionId() {
         return trackingSessionId;
@@ -48,5 +58,9 @@ public class PingedLocationDetailsData {
 
     public void setPingedTime(String pingedTime) {
         this.pingedTime = pingedTime;
+    }
+
+    public void setPingedTime(Long pingedTime) {
+        this.pingedTime = pingedTime.toString();
     }
 }

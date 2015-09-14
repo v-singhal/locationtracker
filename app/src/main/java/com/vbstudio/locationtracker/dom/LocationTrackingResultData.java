@@ -1,4 +1,4 @@
-package com.vstudio.locationtracker.dom;
+package com.vbstudio.locationtracker.dom;
 
 /**
  * Created by vaibhav on 13/9/15.
@@ -26,12 +26,20 @@ public class LocationTrackingResultData {
         this.tripStartTime = tripStartTime;
     }
 
+    public void setTripStartTime(Long tripStartTime) {
+        this.tripStartTime = tripStartTime.toString();
+    }
+
     public String getTripEndTime() {
         return tripEndTime;
     }
 
     public void setTripEndTime(String tripEndTime) {
         this.tripEndTime = tripEndTime;
+    }
+
+    public void setTripEndTime(Long tripEndTime) {
+        this.tripEndTime = tripEndTime.toString();
     }
 
     public Double getDistanceTraveled() {

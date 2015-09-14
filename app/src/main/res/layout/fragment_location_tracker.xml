@@ -6,15 +6,97 @@
     android:gravity="center"
     android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/txtLocationServiceStatus"
-        fontPath="@string/custom_font_path_bold"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textColor="@color/otherCta"
-        android:text="LOCATION TRACKER: "
-        android:textSize="20sp"
-        android:textStyle="bold"/>
+        android:layout_margin="10dp"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="TRACKER ID"
+            android:textColor="@color/lightGrey"/>
+
+        <TextView
+            android:id="@+id/txtTrackerId"
+            fontPath="@string/custom_font_path_bold"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="-"
+            android:textColor="@color/otherCta"
+            android:textStyle="bold"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="START TIME"
+            android:textColor="@color/lightGrey"/>
+
+        <TextView
+            android:id="@+id/txtTripStartTime"
+            fontPath="@string/custom_font_path_bold"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="-"
+            android:textColor="@color/otherCta"
+            android:textStyle="bold"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="END TIME"
+            android:textColor="@color/lightGrey"/>
+
+        <TextView
+            android:id="@+id/txtTripEndTime"
+            fontPath="@string/custom_font_path_bold"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="-"
+            android:textColor="@color/otherCta"
+            android:textStyle="bold"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="DISTANCE TRAVELLED"
+            android:textColor="@color/lightGrey"/>
+
+        <TextView
+            android:id="@+id/txtDistanceTravelled"
+            fontPath="@string/custom_font_path_bold"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="-"
+            android:textColor="@color/otherCta"
+            android:textStyle="bold"/>
+    </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"

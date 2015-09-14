@@ -1,4 +1,4 @@
-package com.vstudio.locationtracker.utils;
+package com.vbstudio.locationtracker.utils;
 
 import android.app.Activity;
 import android.content.Context;
@@ -8,7 +8,7 @@ import android.view.inputmethod.InputMethodManager;
 import android.widget.ImageView;
 
 /**
- * Created by vaibhav on 23/8/15.
+ * Created by vaibhav on 13/9/15.
  */
 public class UIUtils {
 

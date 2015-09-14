@@ -1,11 +1,16 @@
-package com.vstudio.locationtracker.utils;
+package com.vbstudio.locationtracker.utils;
 
 import java.util.regex.Pattern;
 
 /**
- * Created by vaibhav on 23/8/15.
+ * Created by vaibhav on 13/9/15.
  */
 public class StringUtils {
+
+    public static final String APP_DATE_FORMAT = "dd-MMM-yyyy";
+    public static final String APP_TIME_FORMAT = "hh:mm aa";
+    public static final String APP_DATE_TIME_FORMAT = "dd-MMM-yyyy hh:mm aa";
+    public static final String APP_DATE_TIME_SEC_FORMAT = "dd-MMM-yyyy hh:mm:ss";
 
     public static String extractValidString(String text) {
         for(int counter = 0; counter < text.length(); counter++) {

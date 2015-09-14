@@ -1,4 +1,4 @@
-package com.vstudio.locationtracker.fragment;
+package com.vbstudio.locationtracker.fragment;
 
 import android.app.Activity;
 import android.app.ActivityManager;
@@ -19,26 +19,30 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.vstudio.locationtracker.R;
+import com.vbstudio.locationtracker.R;
+import com.vbstudio.locationtracker.database.SqliteHelper;
 
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
-import static com.vstudio.locationtracker.utils.StringUtils.isValidString;
-import static com.vstudio.locationtracker.utils.UIUtils.animateImageAddition;
-import static com.vstudio.locationtracker.utils.UIUtils.hideKeyboard;
+import static com.vbstudio.locationtracker.utils.StringUtils.isValidString;
+import static com.vbstudio.locationtracker.utils.UIUtils.animateImageAddition;
+import static com.vbstudio.locationtracker.utils.UIUtils.hideKeyboard;
 
 public class BaseFragment extends DialogFragment implements View.OnClickListener {
 
     public final static String LOG_TAG = "LOCATION_TRACKER";
 
     private String title;
+    private SqliteHelper sqliteHelper;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        sqliteHelper = new SqliteHelper(getActivity());
 
         Thread.setDefaultUncaughtExceptionHandler(new Thread.UncaughtExceptionHandler() {
             @Override
@@ -87,6 +91,18 @@ public class BaseFragment extends DialogFragment implements View.OnClickListener
         // networkManager = null;
     }
 
+    public void hideLoadingIndicator() {
+        if (getActivity() != null) {
+            getActivity().findViewById(R.id.loadingIndicator).setVisibility(View.GONE);
+        }
+    }
+
+    public void showLoadingIndicator() {
+        if (getActivity() != null) {
+            getActivity().findViewById(R.id.loadingIndicator).setVisibility(View.VISIBLE);
+        }
+    }
+
     public static void addToBackStack(Context context, BaseFragment fragment) {
         FragmentManager fragmentManager = ((ActionBarActivity) context).getSupportFragmentManager();
 
@@ -111,7 +127,7 @@ public class BaseFragment extends DialogFragment implements View.OnClickListener
         transaction.replace(R.id.container, fragment).commit();
     }
 
-    public static void openAniamtedDialog(Dialog dialog) {
+    public static void openAnimatedDialog(Dialog dialog) {
         dialog.getWindow().getAttributes().windowAnimations = R.style.PauseDialogAnimation;
         dialog.show();
     }
@@ -216,5 +232,13 @@ public class BaseFragment extends DialogFragment implements View.OnClickListener
 
     public String getTitle() {
         return title;
+    }
+
+    public SqliteHelper getSqliteHelper() {
+        return sqliteHelper;
+    }
+
+    public void setSqliteHelper(SqliteHelper sqliteHelper) {
+        this.sqliteHelper = sqliteHelper;
     }
 }

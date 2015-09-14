@@ -1,4 +1,4 @@
-package com.vstudio.locationtracker;
+package com.vbstudio.locationtracker;
 
 import android.content.Context;
 import android.os.Bundle;
@@ -8,8 +8,8 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.TextView;
 
-import com.vstudio.locationtracker.fragment.BaseFragment;
-import com.vstudio.locationtracker.fragment.LocationTrackingFragment;
+import com.vbstudio.locationtracker.fragment.BaseFragment;
+import com.vbstudio.locationtracker.fragment.LocationTrackingFragment;
 
 import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 
